@@ -12,4 +12,4 @@ Synthetix es un reproductor de m√∫sica web enfocado en una interfaz oscura y ne√
 
 1. Clona el repositorio:
    ```bash
-   git clone [https://github.com/TU-USUARIO/synthetix.git](https://github.com/TU-USUARIO/synthetix.git)
+   git clone [https://github.com/TU-USUARIO/synthetix.git](https://github.com/stivencobrado12-prog/synthetix.git)
