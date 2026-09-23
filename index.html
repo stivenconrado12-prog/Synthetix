@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Robótica Caribe — página de referencia</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+
+  <!-- ==================== CABECERA ==================== -->
+  <header class="cabecera">
+    <h1 id="titulo">Robótica Caribe</h1>
+    <p id="subtitulo">Semillero de robótica · Cartagena de Indias</p>
+
+    <nav class="menu">
+      <a href="#inicio" class="enlace">Inicio</a>
+      <a href="#coleccion" class="enlace">Proyectos</a>
+      <a href="#contacto" class="enlace">Contacto</a>
+    </nav>
+
+    <button id="btnTema" class="boton-tema">Modo oscuro</button>
+  </header>
+
+  <main>
+
+    <!-- ==================== INICIO ==================== -->
+    <section id="inicio" class="bloque">
+      <h2>Quiénes somos</h2>
+
+      <p id="parrafoInicio">
+        Somos un grupo de aprendices que construye robots con materiales
+        reciclados y los programa para resolver problemas del barrio.
+      </p>
+
+      <div id="caja" class="caja">
+        <p class="caja-texto">Zona de pruebas</p>
+      </div>
+
+      <div class="acciones">
+        <button id="btnColor" class="boton">Cambiar color</button>
+        <button id="btnDestacar" class="boton">Destacar</button>
+        <button id="btnOcultar" class="boton">Ocultar / mostrar</button>
+      </div>
+
+      <p>
+        Más información en
+        <a id="enlaceExterno" href="#" class="enlace-externo">este enlace</a>.
+      </p>
+    </section>
+
+    <!-- ==================== COLECCIÓN ==================== -->
+    <section id="coleccion" class="bloque">
+      <h2>Nuestros proyectos</h2>
+
+      <ul id="lista" class="lista">
+        <li>Brazo robótico con servomotores</li>
+        <li>Sensor de humedad para huertas</li>
+        <li>Carro seguidor de línea</li>
+      </ul>
+
+      <p id="contador" class="contador">—</p>
+
+      <div class="acciones">
+        <input type="text" id="campoProyecto" placeholder="Nombre del proyecto">
+        <button id="btnAgregar" class="boton">Agregar</button>
+        <button id="btnQuitar" class="boton secundario">Quitar el último</button>
+        <button id="btnVaciar" class="boton peligro">Vaciar</button>
+      </div>
+
+      <table id="tabla" class="tabla">
+        <thead>
+          <tr>
+            <th>Proyecto</th>
+            <th>Integrantes</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Brazo robótico</td>
+            <td>4</td>
+            <td>En construcción</td>
+          </tr>
+          <tr>
+            <td>Sensor de humedad</td>
+            <td>3</td>
+            <td>Terminado</td>
+          </tr>
+          <tr>
+            <td>Carro seguidor</td>
+            <td>2</td>
+            <td>En pruebas</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ==================== CONTACTO ==================== -->
+    <section id="contacto" class="bloque">
+      <h2>Escríbanos</h2>
+
+      <form id="formulario" class="formulario">
+
+        <label for="campoNombre">Su nombre</label>
+        <input type="text" id="campoNombre" placeholder="Nombre completo">
+
+        <label for="campoMensaje">Mensaje</label>
+        <textarea id="campoMensaje" rows="3" placeholder="Cuéntenos en qué podemos ayudar"></textarea>
+        <p id="contadorLetras" class="ayuda">0 caracteres</p>
+
+        <button type="submit" id="btnEnviar" class="boton">Enviar</button>
+      </form>
+
+      <p id="avisoForm" class="aviso"></p>
+    </section>
+
+  </main>
+
+  <footer class="pie">
+    <p>Robótica Caribe — Ficha 3230489 — <span id="anio"></span></p>
+  </footer>
+
+</body>
+</html>
