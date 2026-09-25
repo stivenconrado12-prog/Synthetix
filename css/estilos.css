@@ -1,22 +1,14 @@
-/* ===========================================================
-   MISIÓN DOM — hoja de estilos base
-   Ficha 3230489 · ADSO
-
-   Bloques 1 a 9: estilos normales de la página (parte 2).
-   Bloque 10: las clases que el JavaScript pone y quita (parte 3).
-   =========================================================== */
-
 /* ---------- 1. Variables ---------- */
 :root {
-  --papel: #f2f3f5;
+  --papel: #f3e8ff;
   --tarjeta: #ffffff;
-  --tinta: #16202a;
-  --suave: #62707e;
-  --acento: #0f766e;
-  --alerta: #c2410c;
-  --peligro: #b42318;
-  --exito: #15803d;
-  --borde: #d8dde3;
+  --tinta: #24052c;
+  --suave: #8a6894;
+  --acento: #cd50d8;
+  --alerta: #e11d48;
+  --peligro: #be123c;
+  --exito: #16a34a;
+  --borde: #e9d5ff;
 }
 
 /* ---------- 2. Base ---------- */
@@ -27,13 +19,14 @@
 }
 
 body {
-  background: var(--papel);
+  background: linear-gradient(180deg, #fef4ff, #f7e0ff);
   color: var(--tinta);
-  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+  font-family: "Courier New", Courier, monospace;
   font-size: 16px;
   line-height: 1.55;
   padding-bottom: 3rem;
   transition: background .25s, color .25s;
+  border-radius: 10px;
 }
 
 main {
@@ -43,20 +36,49 @@ main {
 }
 
 /* ---------- 3. Cabecera ---------- */
+@font-face {
+  font-family: "Satisfy";
+  src: url("font/malebo.regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .cabecera {
-  background: var(--tinta);
-  color: #ffffff;
+  background: linear-gradient(185deg, #cd50d8, #500668);
   padding: 1.25rem;
   text-align: center;
+  border-radius: 10px;
+  color: #24052c;
+}
+
+.logo-contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.gif-logo {
+  height: 4rem;
+  width: auto;
+  mix-blend-mode: screen;
+  filter: invert(1);
 }
 
 .cabecera h1 {
-  font-size: 1.7rem;
+  font-family: "Satisfy", sans-serif;
+  font-size: 4rem;
   letter-spacing: -.02em;
+  margin: 0;
+  background: linear-gradient(90deg, #ffffff, hsl(274, 100%, 99%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 #subtitulo {
-  color: #aab6c2;
+  color: #f3e8ff;
   font-size: .9rem;
   margin-bottom: .9rem;
 }
@@ -74,22 +96,30 @@ main {
   font-size: .92rem;
   padding-bottom: 2px;
   border-bottom: 2px solid transparent;
+  transition: border-color .2s, opacity .2s;
 }
 
-.enlace:hover { border-bottom-color: var(--acento); }
+.enlace:hover {
+  border-bottom-color: #ffffff;
+  opacity: 0.85;
+}
 
 .boton-tema {
-  background: none;
-  border: 1px solid #47586a;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 999px;
   color: #ffffff;
   padding: .35rem 1rem;
   font-family: inherit;
   font-size: .85rem;
   cursor: pointer;
+  transition: background .2s, border-color .2s;
 }
 
-.boton-tema:hover { border-color: #ffffff; }
+.boton-tema:hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: #ffffff;
+}
 
 /* ---------- 4. Bloques ---------- */
 .bloque {
@@ -98,10 +128,12 @@ main {
   border-radius: 10px;
   padding: 1.4rem 1.5rem;
   margin-bottom: 1.25rem;
+  box-shadow: 0 4px 12px rgba(80, 6, 104, 0.05);
 }
 
 .bloque h2 {
   font-size: 1.2rem;
+  color: #500668;
   margin-bottom: .8rem;
   padding-bottom: .5rem;
   border-bottom: 2px solid var(--borde);
@@ -135,7 +167,7 @@ main {
 }
 
 .boton {
-  background: var(--tinta);
+  background: #500668;
   color: #ffffff;
   border: none;
   border-radius: 6px;
@@ -143,20 +175,31 @@ main {
   font-family: inherit;
   font-size: .92rem;
   cursor: pointer;
+  transition: background .2s, filter .2s;
 }
 
-.boton:hover { filter: brightness(1.25); }
+.boton:hover {
+  background: #cd50d8;
+}
 
 .boton.secundario {
   background: var(--tarjeta);
-  color: var(--tinta);
+  color: #500668;
   border: 1px solid var(--borde);
+}
+
+.boton.secundario:hover {
+  background: var(--papel);
 }
 
 .boton.peligro {
   background: var(--tarjeta);
   color: var(--peligro);
   border: 1px solid var(--peligro);
+}
+
+.boton.peligro:hover {
+  background: #fff1f2;
 }
 
 input[type="text"],
@@ -168,6 +211,13 @@ textarea {
   border-radius: 6px;
   width: 100%;
   max-width: 260px;
+  outline: none;
+  transition: border-color .2s;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+  border-color: var(--acento);
 }
 
 textarea { max-width: 100%; resize: vertical; }
@@ -180,7 +230,7 @@ textarea { max-width: 100%; resize: vertical; }
 
 .lista li {
   padding: .5rem .75rem;
-  border-left: 4px solid var(--borde);
+  border-left: 4px solid var(--acento);
   background: var(--papel);
   border-radius: 0 5px 5px 0;
   margin-bottom: .35rem;
@@ -199,7 +249,7 @@ textarea { max-width: 100%; resize: vertical; }
 }
 
 .tabla th {
-  background: var(--tinta);
+  background: #500668;
   color: #ffffff;
   text-align: left;
   padding: .5rem .7rem;
@@ -246,19 +296,19 @@ textarea { max-width: 100%; resize: vertical; }
   max-width: 800px;
   margin: 1.5rem auto 0;
   padding: 1rem 1.25rem 0;
-  border-top: 1px solid var(--borde);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   font-size: .82rem;
-  color: var(--suave);
+  color: #f3e8ff;
+  text-align: center;
 }
 
 /* ===========================================================
    10. CLASES QUE PONE Y QUITA EL JAVASCRIPT
-   Se escriben en la parte 2, pero solo cobran vida en la parte 3.
    =========================================================== */
 
 /* Misión 5 — destacar la caja */
 .destacada {
-  outline: 4px solid var(--alerta);
+  outline: 4px solid #cd50d8;
   outline-offset: 3px;
 }
 
@@ -269,7 +319,7 @@ textarea { max-width: 100%; resize: vertical; }
 
 /* Misión 11 — marcar la fila de una tabla */
 .fila-marcada {
-  background: #fff7ed;
+  background: #fae8ff;
   font-weight: 600;
 }
 
@@ -279,9 +329,13 @@ textarea { max-width: 100%; resize: vertical; }
 
 /* Misión 14 — modo oscuro: redefine las variables */
 body.noche {
-  --papel: #11161c;
-  --tarjeta: #1a222b;
-  --tinta: #e8edf2;
-  --suave: #93a1b0;
-  --borde: #2d3844;
+  --papel: #23122c;
+  --tarjeta: #17071e;
+  --tinta: #f3e8ff;
+  --suave: #c084fc;
+  --borde: #3b1847;
+}
+
+body.noche .bloque h2 {
+  color: #e9d5ff;
 }
